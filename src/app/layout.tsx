@@ -85,8 +85,35 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
 
+  // Static structured data for homepage
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Solara",
+    "applicationCategory": "WeatherApplication",
+    "operatingSystem": "Web",
+    "url": "https://solara-eta.vercel.app",
+    "description": "Real-time weather monitoring application with air quality, moon phases, and dynamic themes",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "ratingCount": "1"
+    }
+  };
+
   return (
     <html lang={locale}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages} locale={locale}>
           {children}

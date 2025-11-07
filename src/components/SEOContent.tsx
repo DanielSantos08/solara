@@ -13,10 +13,74 @@ export function SEOContent() {
   const locale = useLocale();
   const isPortuguese = locale === 'pt';
 
+  // FAQ Schema for SEO
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": isPortuguese ? [
+      {
+        "@type": "Question",
+        "name": "Qual a fase da lua hoje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O Solara mostra a fase da lua atual em tempo real, incluindo o nome da fase (Nova, Crescente, Cheia, Minguante), porcentagem de iluminação e descrição detalhada. A fase da lua é calculada astronomicamente e atualizada constantemente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como saber se vai chover hoje?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Digite o nome da sua cidade no campo de busca e o Solara mostrará as condições climáticas atuais, incluindo se está chovendo no momento e a quantidade de precipitação registrada na última hora."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como consultar o clima de qualquer cidade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basta digitar o nome da cidade no campo de busca. Você pode pesquisar cidades do Brasil e do mundo inteiro, incluindo São Paulo, Rio de Janeiro, Salvador, New York, London, Tokyo e muito mais."
+        }
+      }
+    ] : [
+      {
+        "@type": "Question",
+        "name": "What is the moon phase today?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Solara shows the current moon phase in real-time, including the phase name (New, Waxing, Full, Waning), illumination percentage and detailed description. The moon phase is calculated astronomically and constantly updated."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to know if it will rain today?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your city name in the search field and Solara will show current weather conditions, including if it's raining now and the amount of precipitation recorded in the last hour."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How to check the weather of any city?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Just type the city name in the search field. You can search cities from Brazil and around the world, including São Paulo, Rio de Janeiro, Salvador, New York, London, Tokyo and many more."
+        }
+      }
+    ]
+  };
+
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      {/* SEO-rich content section */}
-      <section className="mb-12 theme-bg-secondary rounded-lg p-8 shadow-lg">
+    <>
+      {/* FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
+        {/* SEO-rich content section */}
+        <section className="mb-12 theme-bg-secondary rounded-lg p-8 shadow-lg">
         <h2 className="text-3xl font-bold theme-text-primary mb-6">
           {isPortuguese 
             ? 'Previsão do Tempo, Fase da Lua e Qualidade do Ar em Tempo Real'
@@ -189,7 +253,8 @@ export function SEOContent() {
             : 'Keywords: weather, weather forecast, temperature, will it rain, moon phase, moon today, air quality, sunrise, sunset, humidity, wind, atmospheric pressure, visibility, precipitation, meteorology'}
         </p>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
 
