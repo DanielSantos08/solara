@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solara Weather Icons - Demo for GIF Recording</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .icon-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-container {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        .icon-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Sun Animation */
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .sun-glow {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Cloud Animation */
+        @keyframes drift {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .cloud-drift {
+            animation: drift 4s ease-in-out infinite;
+        }
+
+        /* Rain Animation */
+        @keyframes fall {
+            0% { transform: translateY(-10px); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(30px); opacity: 0; }
+        }
+
+        .raindrop {
+            animation: fall 1s linear infinite;
+        }
+
+        .raindrop:nth-child(2) { animation-delay: 0.2s; }
+        .raindrop:nth-child(3) { animation-delay: 0.4s; }
+        .raindrop:nth-child(4) { animation-delay: 0.6s; }
+        .raindrop:nth-child(5) { animation-delay: 0.8s; }
+
+        /* Snow Animation */
+        @keyframes snowfall {
+            0% { transform: translateY(-10px) translateX(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(40px) translateX(10px); opacity: 0; }
+        }
+
+        .snowflake {
+            animation: snowfall 2s linear infinite;
+        }
+
+        .snowflake:nth-child(2) { animation-delay: 0.4s; }
+        .snowflake:nth-child(3) { animation-delay: 0.8s; }
+        .snowflake:nth-child(4) { animation-delay: 1.2s; }
+
+        /* Lightning Animation */
+        @keyframes flash {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .lightning {
+            animation: flash 2s ease-in-out infinite;
+        }
+
+        /* Moon Phases */
+        .moon-phase {
+            font-size: 80px;
+            line-height: 1;
+            animation: moonGlow 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        @keyframes moonGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(200, 200, 255, 0.4));
+                transform: scale(1.05);
+            }
+        }
+
+        /* Instructions */
+        .instructions {
+            background: white;
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-top: 40px;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .instructions h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .instructions code {
+            background: #f5f5f5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>☀️ Solara Weather Icons</h1>
+    
+    <div class="icons-grid">
+        <!-- Sun -->
+        <div class="icon-card">
+            <div class="icon-container">
+                <svg viewBox="0 0 64 64" class="w-full h-full">
+                    <circle cx="32" cy="32" r="16" fill="#fef08a" opacity="0.3" class="sun-glow"/>
+                    <circle cx="32" cy="32" r="12" fill="#fbbf24"/>
+                    <defs>
+                        <radialGradient id="sunGradient">
+                            <stop offset="0%" stop-color="#fde047"/>
+                            <stop offset="100%" stop-color="#f59e0b"/>
+                        </radialGradient>
+                    </defs>
+                    <circle cx="32" cy="32" r="10" fill="url(#sunGradient)"/>
+                    <g  style="animation: spin 20s linear infinite; transform-origin: center;">
+                        <line x1="32" y1="8" x2="32" y2="14" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="32" y1="50" x2="32" y2="56" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="8" y1="32" x2="14" y2="32" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="50" y1="32" x2="56" y2="32" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="14" y1="14" x2="18" y2="18" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="46" y1="46" x2="50" y2="50" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="14" y1="50" x2="18" y2="46" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="46" y1="18" x2="50" y2="14" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </div>
+            <div class="icon-label">☀️ Sun</div>
+        </div>
+
+        <!-- Cloud -->
+        <div class="icon-card">
+            <div class="icon-container">
+                <svg viewBox="0 0 64 64" class="w-full h-full cloud-drift">
+                    <ellipse cx="32" cy="36" rx="20" ry="12" fill="#cbd5e1"/>
+                    <circle cx="20" cy="32" r="10" fill="#cbd5e1"/>
+                    <circle cx="32" cy="28" r="12" fill="#cbd5e1"/>
+                    <circle cx="44" cy="32" r="10" fill="#cbd5e1"/>
+                </svg>
+            </div>
+            <div class="icon-label">☁️ Cloud</div>
+        </div>
+
+        <!-- Rain -->
+        <div class="icon-card">
+            <div class="icon-container">
+                <svg viewBox="0 0 64 64" class="w-full h-full">
+                    <g class="cloud-drift">
+                        <ellipse cx="32" cy="24" rx="18" ry="10" fill="#94a3b8"/>
+                        <circle cx="22" cy="20" r="8" fill="#94a3b8"/>
+                        <circle cx="32" cy="18" r="10" fill="#94a3b8"/>
+                        <circle cx="42" cy="20" r="8" fill="#94a3b8"/>
+                    </g>
+                    <line x1="20" y1="35" x2="20" y2="45" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" class="raindrop"/>
+                    <line x1="28" y1="35" x2="28" y2="45" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" class="raindrop"/>
+                    <line x1="36" y1="35" x2="36" y2="45" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" class="raindrop"/>
+                    <line x1="44" y1="35" x2="44" y2="45" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" class="raindrop"/>
+                </svg>
+            </div>
+            <div class="icon-label">🌧️ Rain</div>
+        </div>
+
+        <!-- Thunder -->
+        <div class="icon-card">
+            <div class="icon-container">
+                <svg viewBox="0 0 64 64" class="w-full h-full">
+                    <g class="cloud-drift">
+                        <ellipse cx="32" cy="20" rx="18" ry="10" fill="#475569"/>
+                        <circle cx="22" cy="16" r="8" fill="#475569"/>
+                        <circle cx="32" cy="14" r="10" fill="#475569"/>
+                        <circle cx="42" cy="16" r="8" fill="#475569"/>
+                    </g>
+                    <path d="M 32 28 L 28 38 L 34 38 L 30 50" stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lightning"/>
+                </svg>
+            </div>
+            <div class="icon-label">⛈️ Thunder</div>
+        </div>
+
+        <!-- Snow -->
+        <div class="icon-card">
+            <div class="icon-container">
+                <svg viewBox="0 0 64 64" class="w-full h-full">
+                    <g class="cloud-drift">
+                        <ellipse cx="32" cy="24" rx="18" ry="10" fill="#cbd5e1"/>
+                        <circle cx="22" cy="20" r="8" fill="#cbd5e1"/>
+                        <circle cx="32" cy="18" r="10" fill="#cbd5e1"/>
+                        <circle cx="42" cy="20" r="8" fill="#cbd5e1"/>
+                    </g>
+                    <text x="18" y="42" font-size="8" fill="#e0f2fe" class="snowflake">❄</text>
+                    <text x="28" y="42" font-size="8" fill="#e0f2fe" class="snowflake">❄</text>
+                    <text x="38" y="42" font-size="8" fill="#e0f2fe" class="snowflake">❄</text>
+                    <text x="48" y="42" font-size="8" fill="#e0f2fe" class="snowflake">❄</text>
+                </svg>
+            </div>
+            <div class="icon-label">🌨️ Snow</div>
+        </div>
+
+        <!-- Moon Phases -->
+        <div class="icon-card">
+            <div class="icon-container moon-phase">🌑</div>
+            <div class="icon-label">New Moon</div>
+        </div>
+
+        <div class="icon-card">
+            <div class="icon-container moon-phase">🌓</div>
+            <div class="icon-label">First Quarter</div>
+        </div>
+
+        <div class="icon-card">
+            <div class="icon-container moon-phase">🌕</div>
+            <div class="icon-label">Full Moon</div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h2>📹 How to Record GIFs</h2>
+        <ol>
+            <li>Open this page in your browser: <code>http://localhost:3000/weather-icons-demo.html</code></li>
+            <li>Use a screen recording tool:
+                <ul style="margin-top: 10px;">
+                    <li><strong>Windows:</strong> ScreenToGif (free)</li>
+                    <li><strong>Mac:</strong> Gifox or Kap (free)</li>
+                    <li><strong>Linux:</strong> Peek (free)</li>
+                    <li><strong>Online:</strong> ezgif.com (record screen)</li>
+                </ul>
+            </li>
+            <li>Record each icon individually (3-5 seconds each)</li>
+            <li>Save GIFs to <code>public/components_readme/</code></li>
+            <li>Update README.md with the new GIF paths</li>
+        </ol>
+    </div>
+</body>
+</html>
+

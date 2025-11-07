@@ -1,0 +1,143 @@
+{
+  "common": {
+    "or": "or",
+    "loading": "Loading...",
+    "error": "Error",
+    "backToStart": "Back to Start"
+  },
+  "header": {
+    "title": "Solara - Sun & Sustainability"
+  },
+  "locationSelector": {
+    "title": "Choose Your Location",
+    "subtitle": "To get accurate weather and air quality data",
+    "useCurrentLocation": "Use My Current Location",
+    "searchPlaceholder": "Enter a city (e.g., New York) or coordinates (e.g., 40.7128, -74.0060)",
+    "searchButton": "Search Location",
+    "errorGeolocation": "Unable to get your location. Please check browser permissions.",
+    "errorInvalidCoordinates": "Invalid coordinates. Use format: latitude, longitude",
+    "errorCityNotFound": "City not found. Try another name.",
+    "errorGeneric": "Error searching location. Try again."
+  },
+  "dashboard": {
+    "realTimeData": "Real-time data",
+    "themeBasedOnLocalTime": "Theme based on local time"
+  },
+  "weatherCard": {
+    "title": "Current Weather",
+    "clouds": "Clouds",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "pressure": "Pressure"
+  },
+  "aqiCard": {
+    "title": "Air Quality",
+    "good": "Good",
+    "moderate": "Moderate",
+    "unhealthy": "Unhealthy",
+    "veryUnhealthy": "Very Unhealthy",
+    "hazardous": "Hazardous",
+    "recentMeasurements": "Recent Measurements"
+  },
+  "luxCard": {
+    "title": "Estimated Luminosity",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "veryLow": "Very low (Night/Indoor)",
+    "low": "Low (Dawn/Dusk)",
+    "moderate": "Moderate (Cloudy)",
+    "high": "High (Partially sunny)",
+    "veryHigh": "Very high (Clear sky)",
+    "calculation": "Calculation based on real solar time and cloud coverage data"
+  },
+  "luxChart": {
+    "title": "Luminosity Throughout the Day",
+    "luminosity": "Luminosity (lux)",
+    "current": "Current",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "curveCalculation": "Curve calculated with real sunrise/sunset data and cloud coverage ({clouds}%)"
+  },
+  "themeCard": {
+    "title": "Current Theme",
+    "intensity": "Intensity",
+    "description": "Theme changes automatically based on time and weather conditions",
+    "morning": "Morning",
+    "day": "Day",
+    "golden": "Golden Hour",
+    "night": "Night"
+  },
+  "moonCard": {
+    "title": "Moon Phase",
+    "illuminated": "illuminated",
+    "phaseInfo": "Phase",
+    "ofCycle": "of lunar cycle",
+    "phases": {
+      "nova": {
+        "name": "New Moon",
+        "description": "Beginning of a new lunar cycle"
+      },
+      "crescente": {
+        "name": "Waxing Crescent",
+        "description": "Moon growing in illumination"
+      },
+      "quartocrescente": {
+        "name": "First Quarter",
+        "description": "Half of the moon visible"
+      },
+      "crescentegibosa": {
+        "name": "Waxing Gibbous",
+        "description": "More than half illuminated"
+      },
+      "cheia": {
+        "name": "Full Moon",
+        "description": "Moon completely illuminated"
+      },
+      "minguantegibosa": {
+        "name": "Waning Gibbous",
+        "description": "Starting to decrease"
+      },
+      "quartominguante": {
+        "name": "Last Quarter",
+        "description": "Half of the moon visible"
+      },
+      "minguante": {
+        "name": "Waning Crescent",
+        "description": "Moon decreasing in illumination"
+      }
+    }
+  },
+  "weatherDetailsCard": {
+    "title": "Meteorological Details",
+    "feelsLike": "Feels Like",
+    "visibility": "Visibility",
+    "rain": "Rain (last hour)",
+    "snow": "Snow (last hour)",
+    "warmer": "warmer",
+    "colder": "colder",
+    "sameAsTemp": "Same as temperature",
+    "excellent": "Excellent",
+    "good": "Good",
+    "moderate": "Moderate",
+    "low": "Low",
+    "lightRain": "Light rain",
+    "moderateRain": "Moderate rain",
+    "heavyRain": "Heavy rain",
+    "lightSnow": "Light snow",
+    "moderateSnow": "Moderate snow",
+    "heavySnow": "Heavy snow",
+    "noPrecipitation": "No precipitation in the last hour"
+  },
+  "footer": {
+    "madeWith": "Made with",
+    "and": "and",
+    "nextjs": "Next.js",
+    "copyright": "Solara - Sun & Sustainability",
+    "dataProvidedBy": "Weather data provided by OpenWeatherMap"
+  },
+  "page": {
+    "welcome": "Welcome to Solara",
+    "subtitle": "Discover real-time information about weather, air quality, and luminosity"
+  }
+}
+

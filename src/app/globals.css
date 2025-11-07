@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* Sistema de Temas Dinâmicos do Solara */
+:root {
+  /* Tema padrão (dia) */
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #f8fafc;
+  --theme-text-primary: #1e293b;
+  --theme-text-secondary: #64748b;
+  --theme-accent: #FF7A2D;
+  --theme-accent-light: #FFD66B;
+  --theme-border: #e2e8f0;
+  --theme-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Tema Morning (manhã) */
+[data-theme="morning"] {
+  --theme-bg-primary: #fff7ed;
+  --theme-bg-secondary: #fef3c7;
+  --theme-text-primary: #92400e;
+  --theme-text-secondary: #a16207;
+  --theme-accent: #f59e0b;
+  --theme-accent-light: #fbbf24;
+  --theme-border: #fed7aa;
+  --theme-shadow: rgba(245, 158, 11, 0.2);
+}
+
+/* Tema Golden Hour (pôr do sol) */
+[data-theme="golden"] {
+  --theme-bg-primary: #fef3c7;
+  --theme-bg-secondary: #fed7aa;
+  --theme-text-primary: #92400e;
+  --theme-text-secondary: #a16207;
+  --theme-accent: #ea580c;
+  --theme-accent-light: #fb923c;
+  --theme-border: #fdba74;
+  --theme-shadow: rgba(234, 88, 12, 0.3);
+}
+
+/* Tema Night (noite) */
+[data-theme="night"] {
+  --theme-bg-primary: #1e293b;
+  --theme-bg-secondary: #334155;
+  --theme-text-primary: #f1f5f9;
+  --theme-text-secondary: #cbd5e1;
+  --theme-accent: #fbbf24;
+  --theme-accent-light: #fde047;
+  --theme-border: #475569;
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+}
+
+@theme inline {
+  --color-background: var(--theme-bg-primary);
+  --color-foreground: var(--theme-text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Transições suaves entre temas */
+* {
+  transition: background-color 0.7s ease-in-out, 
+              color 0.7s ease-in-out, 
+              border-color 0.7s ease-in-out,
+              box-shadow 0.7s ease-in-out;
+}
+
+body {
+  background: var(--theme-bg-primary);
+  color: var(--theme-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Classes utilitárias para temas */
+.theme-bg-primary {
+  background-color: var(--theme-bg-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--theme-bg-secondary);
+}
+
+.theme-text-primary {
+  color: var(--theme-text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--theme-text-secondary);
+}
+
+.theme-accent {
+  color: var(--theme-accent);
+}
+
+.theme-accent-bg {
+  background-color: var(--theme-accent);
+}
+
+.theme-accent-light {
+  color: var(--theme-accent-light);
+}
+
+.theme-accent-light-bg {
+  background-color: var(--theme-accent-light);
+}
+
+.theme-border {
+  border-color: var(--theme-border);
+}
+
+.theme-shadow {
+  box-shadow: 0 4px 6px -1px var(--theme-shadow);
+}
+
+/* Gradientes específicos para cada tema */
+.gradient-golden {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+}
+
+.gradient-sunrise {
+  background: linear-gradient(135deg, #fef3c7, #fed7aa, #fdba74);
+}
+
+.gradient-sunset {
+  background: linear-gradient(135deg, #fb923c, #ea580c, #c2410c);
+}
+
+.gradient-night {
+  background: linear-gradient(135deg, #1e293b, #334155, #475569);
+}
+
+/* Animações personalizadas */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--theme-accent-light); 
+  }
+  50% { 
+    box-shadow: 0 0 20px var(--theme-accent-light); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}

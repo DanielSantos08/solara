@@ -1,0 +1,143 @@
+{
+  "common": {
+    "or": "ou",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "backToStart": "Voltar ao Início"
+  },
+  "header": {
+    "title": "Solara - Sol & Sustentabilidade"
+  },
+  "locationSelector": {
+    "title": "Escolha sua Localização",
+    "subtitle": "Para obter dados precisos do clima e qualidade do ar",
+    "useCurrentLocation": "Usar Minha Localização Atual",
+    "searchPlaceholder": "Digite uma cidade (ex: São Paulo) ou coordenadas (ex: -23.5505, -46.6333)",
+    "searchButton": "Buscar Localização",
+    "errorGeolocation": "Não foi possível obter sua localização. Verifique as permissões do navegador.",
+    "errorInvalidCoordinates": "Coordenadas inválidas. Use o formato: latitude, longitude",
+    "errorCityNotFound": "Cidade não encontrada. Tente outro nome.",
+    "errorGeneric": "Erro ao buscar localização. Tente novamente."
+  },
+  "dashboard": {
+    "realTimeData": "Dados em tempo real",
+    "themeBasedOnLocalTime": "Tema baseado na hora local"
+  },
+  "weatherCard": {
+    "title": "Clima Atual",
+    "clouds": "Nuvens",
+    "humidity": "Umidade",
+    "wind": "Vento",
+    "pressure": "Pressão"
+  },
+  "aqiCard": {
+    "title": "Qualidade do Ar",
+    "good": "Bom",
+    "moderate": "Moderado",
+    "unhealthy": "Insalubre",
+    "veryUnhealthy": "Muito Insalubre",
+    "hazardous": "Perigoso",
+    "recentMeasurements": "Medições Recentes"
+  },
+  "luxCard": {
+    "title": "Luminosidade Estimada",
+    "sunrise": "Nascer do Sol",
+    "sunset": "Pôr do Sol",
+    "veryLow": "Muito baixa (Noite/Interior)",
+    "low": "Baixa (Amanhecer/Entardecer)",
+    "moderate": "Moderada (Nublado)",
+    "high": "Alta (Parcialmente ensolarado)",
+    "veryHigh": "Muito alta (Céu claro)",
+    "calculation": "Cálculo baseado em dados reais de horário solar e cobertura de nuvens"
+  },
+  "luxChart": {
+    "title": "Luminosidade ao Longo do Dia",
+    "luminosity": "Luminosidade (lux)",
+    "current": "Atual",
+    "sunrise": "Nascer",
+    "sunset": "Pôr",
+    "curveCalculation": "Curva calculada com dados reais de nascer/pôr do sol e cobertura de nuvens ({clouds}%)"
+  },
+  "themeCard": {
+    "title": "Tema Atual",
+    "intensity": "Intensidade",
+    "description": "O tema muda automaticamente baseado no horário e condições climáticas",
+    "morning": "Manhã",
+    "day": "Dia",
+    "golden": "Hora Dourada",
+    "night": "Noite"
+  },
+  "moonCard": {
+    "title": "Fase da Lua",
+    "illuminated": "iluminada",
+    "phaseInfo": "Fase",
+    "ofCycle": "do ciclo lunar",
+    "phases": {
+      "nova": {
+        "name": "Nova",
+        "description": "Início de um novo ciclo lunar"
+      },
+      "crescente": {
+        "name": "Crescente",
+        "description": "Lua crescendo em iluminação"
+      },
+      "quartocrescente": {
+        "name": "Quarto Crescente",
+        "description": "Metade da lua visível"
+      },
+      "crescentegibosa": {
+        "name": "Crescente Gibosa",
+        "description": "Mais de metade iluminada"
+      },
+      "cheia": {
+        "name": "Cheia",
+        "description": "Lua completamente iluminada"
+      },
+      "minguantegibosa": {
+        "name": "Minguante Gibosa",
+        "description": "Começando a diminuir"
+      },
+      "quartominguante": {
+        "name": "Quarto Minguante",
+        "description": "Metade da lua visível"
+      },
+      "minguante": {
+        "name": "Minguante",
+        "description": "Lua diminuindo em iluminação"
+      }
+    }
+  },
+  "weatherDetailsCard": {
+    "title": "Detalhes Meteorológicos",
+    "feelsLike": "Sensação Térmica",
+    "visibility": "Visibilidade",
+    "rain": "Chuva (última hora)",
+    "snow": "Neve (última hora)",
+    "warmer": "mais quente",
+    "colder": "mais frio",
+    "sameAsTemp": "Igual à temperatura",
+    "excellent": "Excelente",
+    "good": "Boa",
+    "moderate": "Moderada",
+    "low": "Baixa",
+    "lightRain": "Chuva leve",
+    "moderateRain": "Chuva moderada",
+    "heavyRain": "Chuva forte",
+    "lightSnow": "Nevada leve",
+    "moderateSnow": "Nevada moderada",
+    "heavySnow": "Nevada forte",
+    "noPrecipitation": "Sem precipitação na última hora"
+  },
+  "footer": {
+    "madeWith": "Feito com",
+    "and": "e",
+    "nextjs": "Next.js",
+    "copyright": "Solara - Sol & Sustentabilidade",
+    "dataProvidedBy": "Dados climáticos fornecidos por OpenWeatherMap"
+  },
+  "page": {
+    "welcome": "Bem-vindo ao Solara",
+    "subtitle": "Descubra informações sobre clima, qualidade do ar e luminosidade em tempo real"
+  }
+}
+
