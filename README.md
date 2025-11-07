@@ -10,7 +10,7 @@ A modern, minimalist web application built with Next.js 16 that monitors real-ti
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🌐 Live Demo](https://solara.vercel.app) • [📖 Documentation](#table-of-contents) • [🐛 Report Bug](https://github.com/DanielSantos08/solara/issues) • [✨ Request Feature](https://github.com/DanielSantos08/solara/issues)
+[🌐 Live Demo](https://solara-eta.vercel.app) • [📖 Documentation](#table-of-contents) • [🐛 Report Bug](https://github.com/DanielSantos08/solara/issues) • [✨ Request Feature](https://github.com/DanielSantos08/solara/issues)
 
 </div>
 
@@ -606,9 +606,14 @@ This creates an optimized production build in the `.next` directory.
 ### Deployment Options
 
 #### Vercel (Recommended)
+
+**Live Demo:** [https://solara-eta.vercel.app](https://solara-eta.vercel.app)
+
 1. Push code to GitHub
 2. Import project in Vercel dashboard
-3. Add `OPENWEATHER_KEY` environment variable
+3. Add environment variables:
+   - `OPENWEATHER_KEY` - Your OpenWeatherMap API key
+   - `NEXT_PUBLIC_BASE_URL` - `https://solara-eta.vercel.app`
 4. Deploy automatically
 
 #### Other Platforms
@@ -620,7 +625,16 @@ The application can be deployed to any platform supporting Next.js:
 
 ### Environment Variables in Production
 
-Ensure `OPENWEATHER_KEY` is set in your deployment platform's environment variables section.
+Ensure these environment variables are set in your deployment platform:
+
+- `OPENWEATHER_KEY` - Your OpenWeatherMap API key (required)
+- `NEXT_PUBLIC_BASE_URL` - Your production URL (e.g., `https://solara-eta.vercel.app`)
+
+**Example for Vercel:**
+1. Go to Project Settings → Environment Variables
+2. Add `OPENWEATHER_KEY` with your API key
+3. Add `NEXT_PUBLIC_BASE_URL` with `https://solara-eta.vercel.app`
+4. Redeploy the application
 
 ## License
 
