@@ -8,6 +8,7 @@ import { LocationSelector } from '@/components/LocationSelector';
 import { SEOContent } from '@/components/SEOContent';
 import { Footer } from '@/components/Footer';
 import { ThemeProvider, useTheme } from '@/components/ThemeProvider';
+import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { DashboardData } from '@/types';
 
 function MainContent() {
@@ -54,7 +55,32 @@ function MainContent() {
       />
 
       <main className="min-h-screen">
-        {!dashboardData ? (
+        {isLoading && dashboardData === null ? (
+          <div className="container mx-auto px-4 py-8">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h1 className="text-4xl font-bold theme-text-primary mb-4 animate-fade-in">
+                  {t('welcome')}
+                </h1>
+                <p className="text-xl theme-text-secondary animate-fade-in">
+                  {t('subtitle')}
+                </p>
+              </div>
+
+              <div className="theme-bg-secondary theme-border border rounded-xl p-12 theme-shadow animate-slide-up">
+                <div className="flex flex-col items-center justify-center space-y-4">
+                  <LoadingSpinner size="lg" className="theme-accent" />
+                  <p className="theme-text-primary font-medium text-lg">
+                    {t('loading') || 'Carregando dados...'}
+                  </p>
+                  <p className="theme-text-secondary text-sm">
+                    {t('pleaseWait') || 'Por favor, aguarde'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : !dashboardData ? (
           <div className="container mx-auto px-4 py-8">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
@@ -72,7 +98,7 @@ function MainContent() {
               />
 
               {error && (
-                <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg animate-slide-up">
                   <p className="text-red-700 text-center">{error}</p>
                 </div>
               )}

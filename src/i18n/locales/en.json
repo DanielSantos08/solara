@@ -137,7 +137,9 @@
   },
   "page": {
     "welcome": "Welcome to Solara",
-    "subtitle": "Discover real-time information about weather, air quality, and luminosity"
+    "subtitle": "Discover real-time information about weather, air quality, and luminosity",
+    "loading": "Loading data...",
+    "pleaseWait": "Please wait"
   }
 }
 

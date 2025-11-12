@@ -137,7 +137,9 @@
   },
   "page": {
     "welcome": "Bem-vindo ao Solara",
-    "subtitle": "Descubra informações sobre clima, qualidade do ar e luminosidade em tempo real"
+    "subtitle": "Descubra informações sobre clima, qualidade do ar e luminosidade em tempo real",
+    "loading": "Carregando dados...",
+    "pleaseWait": "Por favor, aguarde"
   }
 }
 

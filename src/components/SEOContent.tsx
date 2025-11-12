@@ -237,7 +237,7 @@ export function SEOContent() {
           ).map((city) => (
             <div
               key={city}
-              className="theme-bg-secondary rounded-lg p-4 text-center hover:opacity-80 transition-opacity cursor-pointer"
+              className="theme-bg-secondary rounded-lg p-4 text-center hover:opacity-80 hover:scale-105 transition-all duration-200 cursor-pointer active:scale-95 hover:shadow-lg"
             >
               <p className="theme-text-primary font-medium">{city}</p>
             </div>

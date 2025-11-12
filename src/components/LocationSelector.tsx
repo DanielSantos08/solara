@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { MapPin, Navigation, AlertCircle } from 'lucide-react';
+import { LoadingSpinner } from './LoadingSpinner';
 
 interface LocationSelectorProps {
   onLocationSelect: (lat: number, lon: number) => void;
@@ -89,9 +90,13 @@ export function LocationSelector({ onLocationSelect, isLoading }: LocationSelect
         <button
           onClick={getCurrentLocation}
           disabled={isLoading}
-          className="w-full theme-accent-bg hover:opacity-90 disabled:opacity-50 text-white py-3 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-200"
+          className="w-full theme-accent-bg hover:opacity-90 disabled:opacity-50 text-white py-3 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-200 cursor-pointer disabled:cursor-not-allowed active:scale-[0.98]"
         >
-          <MapPin className="w-5 h-5" />
+          {isLoading ? (
+            <LoadingSpinner size="sm" className="text-white" />
+          ) : (
+            <MapPin className="w-5 h-5" />
+          )}
           <span>{t('useCurrentLocation')}</span>
         </button>
 
@@ -112,9 +117,10 @@ export function LocationSelector({ onLocationSelect, isLoading }: LocationSelect
           <button
             onClick={handleManualLocation}
             disabled={isLoading || !manualLocation.trim()}
-            className="w-full theme-accent-light-bg hover:opacity-90 disabled:opacity-50 theme-text-primary py-3 px-6 rounded-lg transition-all duration-200"
+            className="w-full theme-accent-light-bg hover:opacity-90 disabled:opacity-50 theme-text-primary py-3 px-6 rounded-lg transition-all duration-200 cursor-pointer disabled:cursor-not-allowed active:scale-[0.98] flex items-center justify-center space-x-2"
           >
-            {t('searchButton')}
+            {isLoading && <LoadingSpinner size="sm" />}
+            <span>{t('searchButton')}</span>
           </button>
         </div>
 

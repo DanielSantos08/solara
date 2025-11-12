@@ -28,7 +28,7 @@ export function LanguageSelector() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         disabled={isPending}
-        className="flex items-center gap-2 p-2 rounded-lg theme-bg-primary theme-border border hover:opacity-80 transition-all disabled:opacity-50"
+        className="flex items-center gap-2 p-2 rounded-lg theme-bg-primary theme-border border hover:opacity-80 transition-all disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed active:scale-95"
         aria-label="Select language"
       >
         <span className="text-xl">{currentLanguage.flag}</span>
@@ -57,7 +57,7 @@ export function LanguageSelector() {
                 key={lang.code}
                 onClick={() => changeLocale(lang.code)}
                 disabled={isPending}
-                className={`w-full flex items-center gap-3 px-4 py-3 hover:opacity-80 transition-all first:rounded-t-lg last:rounded-b-lg disabled:opacity-50 ${
+                className={`w-full flex items-center gap-3 px-4 py-3 hover:opacity-80 transition-all first:rounded-t-lg last:rounded-b-lg disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed active:scale-95 ${
                   lang.code === locale ? 'theme-accent-bg' : ''
                 }`}
               >

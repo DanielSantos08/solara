@@ -136,22 +136,31 @@ body {
 }
 
 @keyframes slideUp {
-  from { 
-    transform: translateY(20px); 
-    opacity: 0; 
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  to { 
-    transform: translateY(0); 
-    opacity: 1; 
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { 
-    box-shadow: 0 0 5px var(--theme-accent-light); 
+  0%, 100% {
+    box-shadow: 0 0 5px var(--theme-accent-light);
   }
-  50% { 
-    box-shadow: 0 0 20px var(--theme-accent-light); 
+  50% {
+    box-shadow: 0 0 20px var(--theme-accent-light);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -165,4 +174,26 @@ body {
 
 .animate-pulse-glow {
   animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Melhorias de UX */
+button {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
 }
